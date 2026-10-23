@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dwuw2chhk2d5a"]
+
+[ext_resource type="Texture2D" uid="uid://dpcojyin5fn5c" path="res://Background.PNG" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://cedx8smigyx08" path="res://Scenes/crab_boy.tscn" id="2_qxrlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm1d"]
+size = Vector2(5029, 732)
+
+[node name="Game" type="Node2D" unique_id=2058913370]
+
+[node name="Background Layer" type="Parallax2D" parent="." unique_id=1261109796]
+scroll_offset = Vector2(-1, -1)
+
+[node name="Background" type="Sprite2D" parent="Background Layer" unique_id=1274658141]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ebmjs")
+
+[node name="Crab boy" parent="." unique_id=36584897 instance=ExtResource("2_qxrlw")]
+position = Vector2(17, 321)
+acceleration = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="Crab boy" unique_id=1560184516]
+zoom = Vector2(0.75, 0.75)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=998180693]
+position = Vector2(17, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1006715288]
+position = Vector2(-142.5, 825)
+shape = SubResource("RectangleShape2D_wrm1d")
