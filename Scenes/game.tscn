@@ -8,23 +8,40 @@ size = Vector2(5029, 732)
 
 [node name="Game" type="Node2D" unique_id=2058913370]
 
-[node name="Background Layer" type="Parallax2D" parent="." unique_id=1261109796]
-scroll_offset = Vector2(-1, -1)
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=666201739]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(23, -525)
 
-[node name="Background" type="Sprite2D" parent="Background Layer" unique_id=1274658141]
-scale = Vector2(1.5, 1.5)
+[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=1274658141]
+scale = Vector2(1.7, 1.7)
 texture = ExtResource("1_ebmjs")
+region_enabled = true
+region_rect = Rect2(0, 0, 2388, 946.5093)
+
+[node name="Ground Sprite" type="Sprite2D" parent="." unique_id=2100150359]
+position = Vector2(23, 874.5089)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_ebmjs")
+region_enabled = true
+region_rect = Rect2(0, 969.6715, 2388, 700.55774)
 
 [node name="Crab boy" parent="." unique_id=36584897 instance=ExtResource("2_qxrlw")]
-position = Vector2(17, 321)
-acceleration = 1.0
+speed = 1200.0
+jump_velocity = -2000.0
 
-[node name="Camera2D" type="Camera2D" parent="Crab boy" unique_id=1560184516]
-zoom = Vector2(0.75, 0.75)
+[node name="Camera2D" type="Camera2D" parent="Crab boy" unique_id=1902333087]
+position = Vector2(0, -500)
+scale = Vector2(0.2, 0.2)
+zoom = Vector2(0.3, 0.3)
+limit_left = -2350
+limit_top = -1450
+limit_right = 2300
+limit_bottom = 1649
+limit_smoothed = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=998180693]
-position = Vector2(17, 321)
+position = Vector2(1933, 1675)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1006715288]
-position = Vector2(-142.5, 825)
+position = Vector2(-1773, -236)
 shape = SubResource("RectangleShape2D_wrm1d")
