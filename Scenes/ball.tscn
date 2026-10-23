@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://gcj6osajtexa"]
+
+[ext_resource type="Texture2D" uid="uid://dbmddl122rui" path="res://Ball.PNG" id="1_d60mj"]
+[ext_resource type="Script" uid="uid://cxxi8somh20kt" path="res://Scenes/ball.gd" id="1_ij5cq"]
+[ext_resource type="AudioStream" uid="uid://bhb37kvd08kca" path="res://mori_sound-fx-impact-ball-526576.mp3" id="3_376qj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d60mj"]
+friction = 0.0
+rough = true
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij5cq"]
+radius = 259.11002
+
+[node name="Ball" type="RigidBody2D" unique_id=1360905847]
+collision_layer = 2
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_d60mj")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ij5cq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=608729613]
+texture = ExtResource("1_d60mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403716425]
+rotation = 2.0943952
+shape = SubResource("CircleShape2D_ij5cq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=741799595]
+stream = ExtResource("3_376qj")
+volume_db = 24.0

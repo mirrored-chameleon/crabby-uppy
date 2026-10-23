@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://c1ybmlgxm040m" path="res://crab_boy.gd" id="1_wu52j"]
 [ext_resource type="Texture2D" uid="uid://7r1m64aptnkt" path="res://Crab.PNG" id="2_aljwa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jlw6k"]
-radius = 161.37224
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu52j"]
+radius = 153.0
+height = 378.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu52j"]
+size = Vector2(277.25, 196)
 
 [node name="Crab boy" type="CharacterBody2D" unique_id=36584897]
 script = ExtResource("1_wu52j")
@@ -14,5 +18,15 @@ position = Vector2(28, 0)
 texture = ExtResource("2_aljwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1322108760]
-position = Vector2(-6, 72)
-shape = SubResource("CircleShape2D_jlw6k")
+position = Vector2(1, 40)
+shape = SubResource("CapsuleShape2D_wu52j")
+
+[node name="Score Checker" type="Area2D" parent="." unique_id=2071121719]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Checker" unique_id=1560038885]
+position = Vector2(4, -99)
+shape = SubResource("RectangleShape2D_wu52j")
+
+[connection signal="body_entered" from="Score Checker" to="." method="_on_score_checker_body_entered"]

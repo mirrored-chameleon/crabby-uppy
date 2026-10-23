@@ -1,47 +1,104 @@
 [gd_scene format=3 uid="uid://dwuw2chhk2d5a"]
 
 [ext_resource type="Texture2D" uid="uid://dpcojyin5fn5c" path="res://Background.PNG" id="1_ebmjs"]
+[ext_resource type="FontFile" uid="uid://b2k7ksl5eda28" path="res://SueEllenFrancisco-Regular.ttf" id="1_wowpa"]
+[ext_resource type="PackedScene" uid="uid://gcj6osajtexa" path="res://Scenes/ball.tscn" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cedx8smigyx08" path="res://Scenes/crab_boy.tscn" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://b0tq8udmi067c" path="res://Scenes/label.gd" id="4_3dryh"]
+[ext_resource type="AudioStream" uid="uid://bihcyts57wv0d" path="res://soundreality-baltic-sea-beach-waves-distant-611955.mp3" id="6_i6g32"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm1d"]
-size = Vector2(5029, 732)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wrm1d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
+normal = Vector2(-100, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dryh"]
+normal = Vector2(100, 0)
 
 [node name="Game" type="Node2D" unique_id=2058913370]
 
+[node name="Label" type="Label" parent="." unique_id=1774746706]
+z_index = -1
+offset_left = -1362.0
+offset_top = -414.0
+offset_right = 1303.0
+offset_bottom = 1537.0
+theme_override_colors/font_color = Color(0.31285068, 0.72302926, 0.9029743, 0.47058824)
+theme_override_fonts/font = ExtResource("1_wowpa")
+theme_override_font_sizes/font_size = 1000
+text = "Score"
+script = ExtResource("4_3dryh")
+metadata/_edit_use_anchors_ = true
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=666201739]
+z_index = -2
 scroll_scale = Vector2(0.5, 1)
-scroll_offset = Vector2(23, -525)
+scroll_offset = Vector2(0, -525)
 
 [node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=1274658141]
-scale = Vector2(1.7, 1.7)
+position = Vector2(0, 179)
+scale = Vector2(2, 2)
 texture = ExtResource("1_ebmjs")
 region_enabled = true
 region_rect = Rect2(0, 0, 2388, 946.5093)
 
 [node name="Ground Sprite" type="Sprite2D" parent="." unique_id=2100150359]
-position = Vector2(23, 874.5089)
-scale = Vector2(1.7, 1.7)
+z_index = -2
+position = Vector2(23, 1121.509)
+scale = Vector2(2, 2)
 texture = ExtResource("1_ebmjs")
 region_enabled = true
 region_rect = Rect2(0, 969.6715, 2388, 700.55774)
 
+[node name="Ball" parent="." unique_id=1360905847 instance=ExtResource("1_wrm1d")]
+position = Vector2(1, 0)
+
 [node name="Crab boy" parent="." unique_id=36584897 instance=ExtResource("2_qxrlw")]
+z_index = 1
+position = Vector2(0, 511)
 speed = 1200.0
 jump_velocity = -2000.0
 
 [node name="Camera2D" type="Camera2D" parent="Crab boy" unique_id=1902333087]
 position = Vector2(0, -500)
 scale = Vector2(0.2, 0.2)
-zoom = Vector2(0.3, 0.3)
-limit_left = -2350
+zoom = Vector2(0.5, 0.5)
+limit_left = -2200
 limit_top = -1450
-limit_right = 2300
+limit_right = 1900
 limit_bottom = 1649
 limit_smoothed = true
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=998180693]
 position = Vector2(1933, 1675)
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1006715288]
-position = Vector2(-1773, -236)
-shape = SubResource("RectangleShape2D_wrm1d")
+position = Vector2(-2004, -407)
+scale = Vector2(10, 10)
+shape = SubResource("WorldBoundaryShape2D_wrm1d")
+
+[node name="Wall 2" type="StaticBody2D" parent="." unique_id=650441560]
+position = Vector2(1933, 1675)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 2" unique_id=2091735129]
+position = Vector2(0, -1500)
+scale = Vector2(10, 10)
+shape = SubResource("WorldBoundaryShape2D_wowpa")
+disabled = true
+
+[node name="Wall 1" type="StaticBody2D" parent="." unique_id=264364756]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall 1" unique_id=1395018536]
+position = Vector2(-2000, 0)
+scale = Vector2(10, 10)
+shape = SubResource("WorldBoundaryShape2D_3dryh")
+disabled = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=904305960]
+autoplay = true
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1017139104]
+stream = ExtResource("6_i6g32")
+volume_db = 1.0
+autoplay = true
