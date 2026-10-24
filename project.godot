@@ -11,13 +11,20 @@ config_version=5
 [application]
 
 config/name="Crabby Uppy"
-run/main_scene="uid://dwuw2chhk2d5a"
+run/main_scene="uid://oyj2cxddpo84"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://hl7l8njshvid"
+config/icon="res://Sprites/icon.svg"
+run/size/mode=4
 
 [autoload]
 
 Global="*uid://be3n1d0yejp46"
+
+[display]
+
+window/size/mode=4
+window/main_scene="uid://bk51yu08onctg"
 
 [editor_plugins]
 

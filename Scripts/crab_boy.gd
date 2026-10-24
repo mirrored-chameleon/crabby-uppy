@@ -22,11 +22,9 @@ func _physics_process(delta: float) -> void:
 
 	velocity.y += get_grav(velocity.y) * delta
 	
-	# Variable Jump Height (Release early to cut jump short)
 	if Input.is_action_just_released("ui_up") and velocity.y < 0:
 		velocity.y *= 0.5
 		
-	# Normal Jump Execution
 	if Input.is_action_just_pressed("ui_up") and jump_count < max_jumps:
 		velocity.y = jump_velocity
 		jump_count += 1

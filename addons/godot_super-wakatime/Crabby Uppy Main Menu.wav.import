@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3vcmjux1c4kt"
+path="res://.godot/imported/Crabby Uppy Main Menu.wav-8e9b18946282e09a399a82f752f6dff9.sample"
+
+[deps]
+
+source_file="res://addons/godot_super-wakatime/Crabby Uppy Main Menu.wav"
+dest_files=["res://.godot/imported/Crabby Uppy Main Menu.wav-8e9b18946282e09a399a82f752f6dff9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

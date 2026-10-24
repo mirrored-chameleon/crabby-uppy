@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://n4b6gn4kaxnw"
+path="res://.godot/imported/Crabby Uppy main game.wav-a703051637f8a17fe6a86a7225725350.sample"
+
+[deps]
+
+source_file="res://Fonts and sounds/Crabby Uppy main game.wav"
+dest_files=["res://.godot/imported/Crabby Uppy main game.wav-a703051637f8a17fe6a86a7225725350.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

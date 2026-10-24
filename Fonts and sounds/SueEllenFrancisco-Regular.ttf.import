@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b2k7ksl5eda28"
-path="res://.godot/imported/SueEllenFrancisco-Regular.ttf-621ce4d4c5662404a5bb8c12254b05ca.fontdata"
+path="res://.godot/imported/SueEllenFrancisco-Regular.ttf-36996b73d01cedf0f19b80a1d3b4c6de.fontdata"
 
 [deps]
 
-source_file="res://SueEllenFrancisco-Regular.ttf"
-dest_files=["res://.godot/imported/SueEllenFrancisco-Regular.ttf-621ce4d4c5662404a5bb8c12254b05ca.fontdata"]
+source_file="res://Fonts and sounds/SueEllenFrancisco-Regular.ttf"
+dest_files=["res://.godot/imported/SueEllenFrancisco-Regular.ttf-36996b73d01cedf0f19b80a1d3b4c6de.fontdata"]
 
 [params]
 

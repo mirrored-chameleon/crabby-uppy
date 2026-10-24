@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhb37kvd08kca"
+path="res://.godot/imported/mori_sound-fx-impact-ball-526576.mp3-5db2123ad3f6b5f11e49988be27fea58.mp3str"
+
+[deps]
+
+source_file="res://Fonts and sounds/mori_sound-fx-impact-ball-526576.mp3"
+dest_files=["res://.godot/imported/mori_sound-fx-impact-ball-526576.mp3-5db2123ad3f6b5f11e49988be27fea58.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

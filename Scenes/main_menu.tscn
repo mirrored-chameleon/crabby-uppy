@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://oyj2cxddpo84"]
+
+[ext_resource type="Texture2D" uid="uid://dpcojyin5fn5c" path="res://Sprites/Background.PNG" id="1_28flt"]
+[ext_resource type="Script" uid="uid://dyob4iqba8id1" path="res://Scripts/main_menu.gd" id="1_n45e2"]
+[ext_resource type="FontFile" uid="uid://b2k7ksl5eda28" path="res://Fonts and sounds/SueEllenFrancisco-Regular.ttf" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://hl7l8njshvid" path="res://Sprites/Logo.PNG" id="3_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://bihcyts57wv0d" path="res://Fonts and sounds/Ambience.mp3" id="4_ce3w2"]
+[ext_resource type="Script" uid="uid://b5f5hterjjgjs" path="res://Scripts/music.gd" id="6_cp0ys"]
+[ext_resource type="AudioStream" uid="uid://cgy77w5oe368s" path="res://Fonts and sounds/Crabby Uppy Main Menu.wav" id="6_opfnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0, 0, 0, 0.18431373)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.08, 0.08, 0.08, 0.9)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.22, 0.22, 0.22, 0.95)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[node name="Main Menu" type="Control" unique_id=702320560]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n45e2")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=808450386]
+position = Vector2(955.0003, 667)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_28flt")
+
+[node name="Label" type="Label" parent="." unique_id=483720690]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 604.0
+offset_right = 1467.0
+offset_bottom = 726.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 50
+text = "A game where you play as  a lil' crab enjoying his day on the beach :D"
+horizontal_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=1062023321]
+position = Vector2(1014, 320)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_1ehe0")
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=1524302892]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 280.0
+offset_right = 160.0
+offset_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="MenuButtons" unique_id=1569145765]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="MenuButtons" unique_id=1801508158]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+text = "QUIT"
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1716499879]
+stream = ExtResource("4_ce3w2")
+volume_db = 1.0
+autoplay = true
+script = ExtResource("6_cp0ys")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1754557500]
+stream = ExtResource("6_opfnp")
+volume_db = 12.0
+autoplay = true
+script = ExtResource("6_cp0ys")
+
+[node name="Highscore" type="Label" parent="." unique_id=796050337]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 705.0
+offset_right = 1050.0
+offset_bottom = 852.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 75
+text = "Highscore"
+
+[connection signal="pressed" from="MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]

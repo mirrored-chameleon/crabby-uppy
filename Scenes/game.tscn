@@ -1,13 +1,27 @@
 [gd_scene format=3 uid="uid://dwuw2chhk2d5a"]
 
-[ext_resource type="Texture2D" uid="uid://dpcojyin5fn5c" path="res://Background.PNG" id="1_ebmjs"]
-[ext_resource type="FontFile" uid="uid://b2k7ksl5eda28" path="res://SueEllenFrancisco-Regular.ttf" id="1_wowpa"]
+[ext_resource type="Script" uid="uid://hnblunpsnssf" path="res://Scripts/game.gd" id="1_nnt18"]
+[ext_resource type="FontFile" uid="uid://b2k7ksl5eda28" path="res://Fonts and sounds/SueEllenFrancisco-Regular.ttf" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://gcj6osajtexa" path="res://Scenes/ball.tscn" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cedx8smigyx08" path="res://Scenes/crab_boy.tscn" id="2_qxrlw"]
-[ext_resource type="Script" uid="uid://b0tq8udmi067c" path="res://Scenes/label.gd" id="4_3dryh"]
-[ext_resource type="AudioStream" uid="uid://bihcyts57wv0d" path="res://soundreality-baltic-sea-beach-waves-distant-611955.mp3" id="6_i6g32"]
+[ext_resource type="Texture2D" uid="uid://b8i5d6v48glw5" path="res://Sprites/Ocean.PNG" id="3_v158k"]
+[ext_resource type="Script" uid="uid://b0tq8udmi067c" path="res://Scripts/label.gd" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://cx7jew1hprda1" path="res://Sprites/Clouds.PNG" id="4_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://dc472aoo3rgr1" path="res://Sprites/Ground.PNG" id="5_ldgsr"]
+[ext_resource type="AudioStream" uid="uid://bihcyts57wv0d" path="res://Fonts and sounds/Ambience.mp3" id="6_i6g32"]
+[ext_resource type="Script" uid="uid://bqpcqw6q0kmeb" path="res://Scripts/arrow.gd" id="8_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://b7psu26184k52" path="res://Sprites/Arrow.PNG" id="8_ldgsr"]
+[ext_resource type="AudioStream" uid="uid://n4b6gn4kaxnw" path="res://Fonts and sounds/Crabby Uppy main game.wav" id="10_1phco"]
+[ext_resource type="Script" uid="uid://b5f5hterjjgjs" path="res://Scripts/music.gd" id="11_nb51f"]
+[ext_resource type="Script" uid="uid://d1aojxnvgyatv" path="res://Scripts/shadow.gd" id="11_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://d3w5juwbru6t" path="res://Sprites/Shadow.PNG" id="11_rku1e"]
+[ext_resource type="Script" uid="uid://ehb4nhrep3ii" path="res://Scripts/ball_shadow.gd" id="13_rfjv2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v158k"]
+bounce = 1.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wrm1d"]
+distance = -20.69999
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wowpa"]
 normal = Vector2(-100, 0)
@@ -16,6 +30,14 @@ normal = Vector2(-100, 0)
 normal = Vector2(100, 0)
 
 [node name="Game" type="Node2D" unique_id=2058913370]
+script = ExtResource("1_nnt18")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=814534321]
+position = Vector2(0, 11)
+scale = Vector2(0.19999999, 0.19999999)
+texture = ExtResource("8_ldgsr")
+script = ExtResource("8_h4fw4")
+SCREEN_MARGIN_TOP = 100.0
 
 [node name="Label" type="Label" parent="." unique_id=1774746706]
 z_index = -1
@@ -30,28 +52,39 @@ text = "Score"
 script = ExtResource("4_3dryh")
 metadata/_edit_use_anchors_ = true
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=666201739]
+[node name="Ocean" type="Parallax2D" parent="." unique_id=595579269]
 z_index = -2
-scroll_scale = Vector2(0.5, 1)
+scale = Vector2(2, 2)
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ocean" unique_id=740808884]
+position = Vector2(16.5, 181.5)
+texture = ExtResource("3_v158k")
+
+[node name="Background" type="Parallax2D" parent="." unique_id=666201739]
+z_index = -2
+scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(0, -525)
 
-[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=1274658141]
-position = Vector2(0, 179)
+[node name="Background" type="Sprite2D" parent="Background" unique_id=1274658141]
+z_index = -2
+position = Vector2(19, 1092)
 scale = Vector2(2, 2)
-texture = ExtResource("1_ebmjs")
-region_enabled = true
-region_rect = Rect2(0, 0, 2388, 946.5093)
+texture = ExtResource("4_h4fw4")
 
 [node name="Ground Sprite" type="Sprite2D" parent="." unique_id=2100150359]
-z_index = -2
-position = Vector2(23, 1121.509)
+z_index = -1
+position = Vector2(18, 1196.509)
 scale = Vector2(2, 2)
-texture = ExtResource("1_ebmjs")
+texture = ExtResource("5_ldgsr")
 region_enabled = true
 region_rect = Rect2(0, 969.6715, 2388, 700.55774)
 
 [node name="Ball" parent="." unique_id=1360905847 instance=ExtResource("1_wrm1d")]
+z_index = 1
 position = Vector2(1, 0)
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_v158k")
 
 [node name="Crab boy" parent="." unique_id=36584897 instance=ExtResource("2_qxrlw")]
 z_index = 1
@@ -85,7 +118,6 @@ position = Vector2(1933, 1675)
 position = Vector2(0, -1500)
 scale = Vector2(10, 10)
 shape = SubResource("WorldBoundaryShape2D_wowpa")
-disabled = true
 
 [node name="Wall 1" type="StaticBody2D" parent="." unique_id=264364756]
 
@@ -93,12 +125,27 @@ disabled = true
 position = Vector2(-2000, 0)
 scale = Vector2(10, 10)
 shape = SubResource("WorldBoundaryShape2D_3dryh")
-disabled = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=904305960]
+stream = ExtResource("10_1phco")
+volume_db = 12.0
 autoplay = true
+script = ExtResource("11_nb51f")
 
-[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1017139104]
+[node name="Crab Shadow" type="Sprite2D" parent="." unique_id=380415333]
+position = Vector2(-60, 1341)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_rku1e")
+script = ExtResource("11_o5yvi")
+
+[node name="Ball Shadow" type="Sprite2D" parent="." unique_id=1931961976]
+position = Vector2(-60, 1341)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_rku1e")
+script = ExtResource("13_rfjv2")
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1956152305]
 stream = ExtResource("6_i6g32")
 volume_db = 1.0
 autoplay = true
+script = ExtResource("11_nb51f")

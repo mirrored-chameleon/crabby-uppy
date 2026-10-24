@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cedx8smigyx08"]
 
-[ext_resource type="Script" uid="uid://c1ybmlgxm040m" path="res://crab_boy.gd" id="1_wu52j"]
-[ext_resource type="Texture2D" uid="uid://7r1m64aptnkt" path="res://Crab.PNG" id="2_aljwa"]
+[ext_resource type="Script" uid="uid://c1ybmlgxm040m" path="res://Scripts/crab_boy.gd" id="1_wu52j"]
+[ext_resource type="Texture2D" uid="uid://bdhijtipm7hrt" path="res://Sprites/Crab.PNG" id="2_aljwa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu52j"]
 radius = 153.0

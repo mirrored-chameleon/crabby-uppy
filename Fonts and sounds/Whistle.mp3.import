@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2ps0y1bdadom"
+path="res://.godot/imported/Whistle.mp3-256ada34ad59c75cdd9df94d3d34ac4f.mp3str"
+
+[deps]
+
+source_file="res://Fonts and sounds/Whistle.mp3"
+dest_files=["res://.godot/imported/Whistle.mp3-256ada34ad59c75cdd9df94d3d34ac4f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

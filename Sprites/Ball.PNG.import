@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7r1m64aptnkt"
-path="res://.godot/imported/Crab.PNG-785335c3dd520b0aa4df2adf4b30db5a.ctex"
+uid="uid://dbmddl122rui"
+path="res://.godot/imported/Ball.PNG-2ac5bdacd0b454e6446c87f018595cf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crab.PNG"
-dest_files=["res://.godot/imported/Crab.PNG-785335c3dd520b0aa4df2adf4b30db5a.ctex"]
+source_file="res://Sprites/Ball.PNG"
+dest_files=["res://.godot/imported/Ball.PNG-2ac5bdacd0b454e6446c87f018595cf6.ctex"]
 
 [params]
 
